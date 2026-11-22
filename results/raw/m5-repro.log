@@ -1,0 +1,66 @@
+﻿# Fresh-clone reproduction check, [date redacted]: git clone of commit 79a9ab2 into a temporary folder (<clone>), cmake --preset release (venv of the main checkout), cmake --build, ctest under gpu_guard.
+-- The CXX compiler identification is MSVC 19.44.35230.0
+-- The CUDA compiler identification is NVIDIA 13.3.73 with host compiler MSVC 19.44.35230.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/bin/nvcc.exe - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Found CUDAToolkit: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/include;C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/include/cccl (found suitable version "13.3.73", minimum required is "13.3")
+-- Configuring done (6.7s)
+-- Generating done (0.1s)
+-- Build files have been written to: <clone>/build/release
+[1/24] Building CXX object CMakeFiles\kernellens_objs.dir\src\common\error_state.cpp.obj
+[2/24] Building CXX object CMakeFiles\kernellens_objs.dir\src\common\device_buffer.cpp.obj
+[3/24] Building CXX object CMakeFiles\kernellens_objs.dir\src\kernellens_api.cpp.obj
+[4/24] Building CXX object CMakeFiles\test_smoke.dir\tests\cpp\test_smoke.cpp.obj
+[5/24] Building CXX object CMakeFiles\test_softmax.dir\tests\cpp\test_softmax.cpp.obj
+[6/24] Building CXX object CMakeFiles\test_layernorm.dir\tests\cpp\test_layernorm.cpp.obj
+[7/24] Building CXX object CMakeFiles\test_gemm.dir\tests\cpp\test_gemm.cpp.obj
+[8/24] Building CXX object CMakeFiles\bench_softmax.dir\benchmarks\bench_softmax.cpp.obj
+[9/24] Building CXX object CMakeFiles\profile_kernels.dir\benchmarks\profile_kernels.cpp.obj
+[10/24] Building CXX object CMakeFiles\bench_layernorm.dir\benchmarks\bench_layernorm.cpp.obj
+[11/24] Building CXX object CMakeFiles\bench_gemm.dir\benchmarks\bench_gemm.cpp.obj
+[12/24] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\saxpy.cu.obj
+saxpy.cu
+tmpxft_000072b0_00000000-7_saxpy.cudafe1.cpp
+[13/24] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\gemm.cu.obj
+gemm.cu
+tmpxft_000031f8_00000000-7_gemm.cudafe1.cpp
+[14/24] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\softmax.cu.obj
+softmax.cu
+tmpxft_00007280_00000000-7_softmax.cudafe1.cpp
+[15/24] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\layernorm.cu.obj
+layernorm.cu
+tmpxft_00002960_00000000-7_layernorm.cudafe1.cpp
+[16/24] Linking CXX shared library kernellens.dll
+[17/24] Linking CXX executable test_smoke.exe
+[18/24] Linking CXX executable test_softmax.exe
+[19/24] Linking CXX executable test_layernorm.exe
+[20/24] Linking CXX executable test_gemm.exe
+[21/24] Linking CXX executable bench_softmax.exe
+[22/24] Linking CXX executable bench_layernorm.exe
+[23/24] Linking CXX executable bench_gemm.exe
+[24/24] Linking CXX executable profile_kernels.exe
+Test project <clone>/build/release
+    Start 1: cpp_smoke
+1/5 Test #1: cpp_smoke ........................   Passed    1.64 sec
+    Start 2: cpp_softmax
+2/5 Test #2: cpp_softmax ......................   Passed    0.67 sec
+    Start 3: cpp_layernorm
+3/5 Test #3: cpp_layernorm ....................   Passed    2.45 sec
+    Start 4: cpp_gemm
+4/5 Test #4: cpp_gemm .........................   Passed    2.09 sec
+    Start 5: python_reference
+5/5 Test #5: python_reference .................   Passed   28.64 sec
+
+100% tests passed out of 5
+
+Total Test time (real) =  35.60 sec
+[gpu_guard] 36.7 s, peak 47 C, log: <clone>-gpu.csv
+

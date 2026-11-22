@@ -1,0 +1,30 @@
+# GEMM mutation checks (9 mutations of src/cuda/gemm.cu)
+# CAUGHT = at least one C++ or Python test failed with the mutation applied.
+tiled_missing_load_barrier: CAUGHT - TILED reads its shared tiles before every thread has stored them
+    7 of 11 C++ tests failed: gemm_bitwise_identical, gemm_boundary_shapes_uniform, gemm_guard_bands, gemm_integer_exact, gemm_special_values, gemm_tiny_products_and_signed_zeros, gemm_wide_magnitudes
+    pytest: 19 failed, 64 passed in 2.80s; failing tests: test_gemm_device_api_on_torch_tensors, test_gemm_implementations_bitwise_identical, test_gemm_integer_inputs_exact, test_gemm_matches_float64_reference, test_gemm_matches_torch_float64
+tiled_missing_reuse_barrier: CAUGHT - TILED overwrites its tiles while other threads may still read them
+    7 of 11 C++ tests failed: gemm_bitwise_identical, gemm_boundary_shapes_uniform, gemm_guard_bands, gemm_integer_exact, gemm_special_values, gemm_tiny_products_and_signed_zeros, gemm_wide_magnitudes
+    pytest: 17 failed, 66 passed in 2.64s; failing tests: test_gemm_implementations_bitwise_identical, test_gemm_integer_inputs_exact, test_gemm_matches_float64_reference, test_gemm_matches_torch_float64
+tiled_padded_tail: CAUGHT - TILED runs its inner loop over the whole zero-padded last tile (extra fmaf(0, 0, acc))
+    1 of 11 C++ tests failed: gemm_tiny_products_and_signed_zeros
+    pytest: 83 passed in 2.44s; failing tests: -
+tiled_drops_last_element: CAUGHT - TILED's inner loop stops one element early in the last tile
+    8 of 11 C++ tests failed: gemm_bitwise_identical, gemm_boundary_shapes_uniform, gemm_guard_bands, gemm_integer_exact, gemm_k_zero_and_one, gemm_special_values, gemm_tiny_products_and_signed_zeros, gemm_wide_magnitudes
+    pytest: 23 failed, 60 passed in 2.72s; failing tests: test_gemm_implementations_bitwise_identical, test_gemm_integer_inputs_exact, test_gemm_matches_float64_reference, test_gemm_matches_torch_float64, test_gemm_special_values
+naive_edge_guard_off_by_one: CAUGHT - NAIVE (and its L1-bypass control copy) writes one row/column past the matrix
+    8 of 11 C++ tests failed: gemm_bitwise_identical, gemm_boundary_shapes_uniform, gemm_guard_bands, gemm_integer_exact, gemm_k_zero_and_one, gemm_special_values, gemm_tiny_products_and_signed_zeros, gemm_wide_magnitudes
+    pytest: 13 failed, 70 passed in 3.36s; failing tests: test_gemm_device_api_on_torch_tensors, test_gemm_implementations_bitwise_identical, test_gemm_integer_inputs_exact, test_gemm_matches_float64_reference, test_gemm_matches_torch_float64, test_gemm_special_values
+regblock_wrong_row_stride: CAUGHT - REGBLOCK stores outputs with a wrong row step (15 instead of 16)
+    7 of 11 C++ tests failed: gemm_bitwise_identical, gemm_boundary_shapes_uniform, gemm_guard_bands, gemm_integer_exact, gemm_special_values, gemm_tiny_products_and_signed_zeros, gemm_wide_magnitudes
+    pytest: 28 failed, 55 passed in 3.10s; failing tests: test_gemm_device_api_on_torch_tensors, test_gemm_implementations_bitwise_identical, test_gemm_integer_inputs_exact, test_gemm_matches_float64_reference, test_gemm_matches_torch_float64
+regblock_b_tile_column_offset: CAUGHT - REGBLOCK loads B's tile with a one-column shift
+    8 of 11 C++ tests failed: gemm_bitwise_identical, gemm_boundary_shapes_uniform, gemm_guard_bands, gemm_integer_exact, gemm_k_zero_and_one, gemm_special_values, gemm_tiny_products_and_signed_zeros, gemm_wide_magnitudes
+    pytest: 41 failed, 42 passed in 2.88s; failing tests: test_gemm_implementations_bitwise_identical, test_gemm_integer_inputs_exact, test_gemm_matches_float64_reference, test_gemm_matches_torch_float64, test_gemm_special_values
+regblock_wrong_a_index: CAUGHT - REGBLOCK reads A values from the wrong tile row (ty + 15 i)
+    7 of 11 C++ tests failed: gemm_bitwise_identical, gemm_boundary_shapes_uniform, gemm_guard_bands, gemm_integer_exact, gemm_special_values, gemm_tiny_products_and_signed_zeros, gemm_wide_magnitudes
+    pytest: 26 failed, 57 passed in 2.81s; failing tests: test_gemm_implementations_bitwise_identical, test_gemm_integer_inputs_exact, test_gemm_matches_float64_reference, test_gemm_matches_torch_float64
+regblock_k_step_skips: CAUGHT - REGBLOCK advances K by 2 tiles' worth after a full tile (skips data)
+    7 of 11 C++ tests failed: gemm_bitwise_identical, gemm_boundary_shapes_uniform, gemm_guard_bands, gemm_integer_exact, gemm_special_values, gemm_tiny_products_and_signed_zeros, gemm_wide_magnitudes
+    pytest: 30 failed, 53 passed in 3.07s; failing tests: test_gemm_implementations_bitwise_identical, test_gemm_integer_inputs_exact, test_gemm_matches_float64_reference, test_gemm_matches_torch_float64
+restored original: byte-identical=True, rebuild ok=True, 0 of 11 C++ tests failed, pytest: 83 passed in 2.56s

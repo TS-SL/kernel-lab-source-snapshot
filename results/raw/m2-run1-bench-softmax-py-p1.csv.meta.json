@@ -1,0 +1,1454 @@
+{
+  "harness": "python",
+  "process": 1,
+  "commit": "6f5a6e2",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "driver": "610.60",
+  "cuda_driver": 13030,
+  "runtime": "torch:13020/kernellens:13030",
+  "build": "torch 2.15.0+cu132; kernellens.dll via ctypes",
+  "stamp": "run-002",
+  "l2_bytes": 2359296,
+  "nvml": true,
+  "items": [
+    {
+      "type": "after_clock_ramp",
+      "ramp_ms": 300,
+      "sm_mhz": 1912,
+      "mem_mhz": 7301,
+      "pstate": 2,
+      "temp_c": 47,
+      "reasons": "0x0"
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 32,
+      "worst_ratio_to_bound": 0.6244938662590162
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 32,
+      "worst_ratio_to_bound": 0.35133750550422405
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 32,
+      "worst_ratio_to_bound": 0.6244938662590162
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 32,
+      "max_rel_err_vs_float64": 1.220225262380863e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 32,
+      "k": 287,
+      "ms_per_launch_k": 0.05278773424102039,
+      "ms_per_launch_2k": 0.05282341561666349,
+      "fixed_batch_cost_ms": -0.020481109619140916
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 32,
+      "k": 287,
+      "ms_per_launch_k": 0.05437814732461856,
+      "ms_per_launch_2k": 0.05443411837056123,
+      "fixed_batch_cost_ms": -0.03212738037109156
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 32,
+      "k": 287,
+      "ms_per_launch_k": 0.006768390276706177,
+      "ms_per_launch_2k": 0.005879972039199457,
+      "fixed_batch_cost_ms": 0.5099520683288574
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 32,
+      "k": 287,
+      "ms_per_launch_k": 0.006625337883155105,
+      "ms_per_launch_2k": 0.006893268445642983,
+      "fixed_batch_cost_ms": -0.1537921428680419
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 32,
+      "worst_ratio_to_bound": 0.6410428616226697
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 32,
+      "worst_ratio_to_bound": 0.35784042473498756
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 32,
+      "worst_ratio_to_bound": 0.63133258014533
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 32,
+      "max_rel_err_vs_float64": 1.19021979990481e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 128,
+      "worst_ratio_to_bound": 0.6062580045072636
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 128,
+      "worst_ratio_to_bound": 0.29591956154982124
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 128,
+      "worst_ratio_to_bound": 0.5886208113711519
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 128,
+      "max_rel_err_vs_float64": 1.2180499713243346e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 128,
+      "k": 72,
+      "ms_per_launch_k": 0.0594773358768887,
+      "ms_per_launch_2k": 0.05943466557396783,
+      "fixed_batch_cost_ms": 0.006144523620605358
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 128,
+      "k": 72,
+      "ms_per_launch_k": 0.060356888506147593,
+      "ms_per_launch_2k": 0.06027377976311578,
+      "fixed_batch_cost_ms": 0.011967658996581365
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 128,
+      "k": 72,
+      "ms_per_launch_k": 0.015599555439419217,
+      "ms_per_launch_2k": 0.01555199921131134,
+      "fixed_batch_cost_ms": 0.006848096847534291
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 128,
+      "k": 72,
+      "ms_per_launch_k": 0.015812445018026564,
+      "ms_per_launch_2k": 0.015637111332681444,
+      "fixed_batch_cost_ms": 0.025248050689697377
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 128,
+      "worst_ratio_to_bound": 0.6062580045072636
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 128,
+      "worst_ratio_to_bound": 0.29591956154982124
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 128,
+      "worst_ratio_to_bound": 0.5886208113711519
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 128,
+      "max_rel_err_vs_float64": 1.2180499713243346e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 512,
+      "worst_ratio_to_bound": 0.5568675528212164
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 512,
+      "worst_ratio_to_bound": 0.24705881331685783
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 512,
+      "worst_ratio_to_bound": 0.4268811616280926
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 512,
+      "max_rel_err_vs_float64": 1.2125305335976854e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 512,
+      "k": 18,
+      "ms_per_launch_k": 0.12145777543385823,
+      "ms_per_launch_2k": 0.12179911136627197,
+      "fixed_batch_cost_ms": -0.012288093566894698
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 512,
+      "k": 18,
+      "ms_per_launch_k": 0.0922737783855862,
+      "ms_per_launch_2k": 0.09198933177524143,
+      "fixed_batch_cost_ms": 0.010240077972411665
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 512,
+      "k": 18,
+      "ms_per_launch_k": 0.05347377724117703,
+      "ms_per_launch_2k": 0.053124444352255926,
+      "fixed_batch_cost_ms": 0.012575984001159751
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 512,
+      "k": 18,
+      "ms_per_launch_k": 0.05341866612434387,
+      "ms_per_launch_2k": 0.052849776215023465,
+      "fixed_batch_cost_ms": 0.02048003673553464
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 512,
+      "worst_ratio_to_bound": 0.5568675528212164
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 512,
+      "worst_ratio_to_bound": 0.24705881331685783
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 512,
+      "worst_ratio_to_bound": 0.4268811616280926
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 512,
+      "max_rel_err_vs_float64": 1.2125305335976854e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 1024,
+      "worst_ratio_to_bound": 0.5259557743417891
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 1024,
+      "worst_ratio_to_bound": 0.221934832583117
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 1024,
+      "worst_ratio_to_bound": 0.323258449305598
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 1024,
+      "max_rel_err_vs_float64": 1.222463767148005e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 1024,
+      "k": 9,
+      "ms_per_launch_k": 0.20999822351667616,
+      "ms_per_launch_2k": 0.20962844954596627,
+      "fixed_batch_cost_ms": 0.006655931472778043
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 1024,
+      "k": 9,
+      "ms_per_launch_k": 0.12777245044708252,
+      "ms_per_launch_2k": 0.12708977858225504,
+      "fixed_batch_cost_ms": 0.012288093566894698
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 1024,
+      "k": 9,
+      "ms_per_launch_k": 0.10467200146781074,
+      "ms_per_launch_2k": 0.10439111126793756,
+      "fixed_batch_cost_ms": 0.00505602359771723
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 1024,
+      "k": 9,
+      "ms_per_launch_k": 0.10510577758153279,
+      "ms_per_launch_2k": 0.1043342219458686,
+      "fixed_batch_cost_ms": 0.013888001441955511
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 4096,
+      "cols": 1024,
+      "worst_ratio_to_bound": 0.5259557743417891
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 4096,
+      "cols": 1024,
+      "worst_ratio_to_bound": 0.221934832583117
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_warp",
+      "rows": 4096,
+      "cols": 1024,
+      "worst_ratio_to_bound": 0.323258449305598
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 4096,
+      "cols": 1024,
+      "max_rel_err_vs_float64": 1.222463767148005e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 2048,
+      "cols": 2048,
+      "worst_ratio_to_bound": 0.47283709942024643
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 2048,
+      "cols": 2048,
+      "worst_ratio_to_bound": 0.17456545926768424
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 2048,
+      "cols": 2048,
+      "max_rel_err_vs_float64": 1.2540198035437927e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 2048,
+      "cols": 2048,
+      "k": 9,
+      "ms_per_launch_k": 0.32836267683241105,
+      "ms_per_launch_2k": 0.3275093237559001,
+      "fixed_batch_cost_ms": 0.015360355377197377
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 2048,
+      "cols": 2048,
+      "k": 9,
+      "ms_per_launch_k": 0.2965048948923747,
+      "ms_per_launch_2k": 0.29610665639241535,
+      "fixed_batch_cost_ms": 0.007168292999268244
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 2048,
+      "cols": 2048,
+      "k": 9,
+      "ms_per_launch_k": 0.17567288875579834,
+      "ms_per_launch_2k": 0.17282844914330375,
+      "fixed_batch_cost_ms": 0.051199913024902566
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 2048,
+      "cols": 2048,
+      "worst_ratio_to_bound": 0.47283709942024643
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 2048,
+      "cols": 2048,
+      "worst_ratio_to_bound": 0.17456545926768424
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 2048,
+      "cols": 2048,
+      "max_rel_err_vs_float64": 1.2540198035437927e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 1024,
+      "cols": 4096,
+      "worst_ratio_to_bound": 0.39705244212795765
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 1024,
+      "cols": 4096,
+      "worst_ratio_to_bound": 0.12179792873302814
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 1024,
+      "cols": 4096,
+      "max_rel_err_vs_float64": 1.186504056526196e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 1024,
+      "cols": 4096,
+      "k": 9,
+      "ms_per_launch_k": 0.21356088585323757,
+      "ms_per_launch_2k": 0.2130417823791504,
+      "fixed_batch_cost_ms": 0.009343862533569225
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 1024,
+      "cols": 4096,
+      "k": 9,
+      "ms_per_launch_k": 0.15837866730160183,
+      "ms_per_launch_2k": 0.15819022390577528,
+      "fixed_batch_cost_ms": 0.003391981124877874
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 1024,
+      "cols": 4096,
+      "k": 9,
+      "ms_per_launch_k": 0.11262933413187663,
+      "ms_per_launch_2k": 0.11268622345394558,
+      "fixed_batch_cost_ms": -0.0010240077972410166
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 1024,
+      "cols": 4096,
+      "worst_ratio_to_bound": 0.39705244212795765
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 1024,
+      "cols": 4096,
+      "worst_ratio_to_bound": 0.12179792873302814
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 1024,
+      "cols": 4096,
+      "max_rel_err_vs_float64": 1.186504056526196e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 256,
+      "cols": 16384,
+      "worst_ratio_to_bound": 0.2101296884364953
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 256,
+      "cols": 16384,
+      "worst_ratio_to_bound": 0.04589911609708723
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 256,
+      "cols": 16384,
+      "max_rel_err_vs_float64": 1.1847597805652036e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 256,
+      "cols": 16384,
+      "k": 9,
+      "ms_per_launch_k": 0.21526755226982963,
+      "ms_per_launch_2k": 0.21350044674343532,
+      "fixed_batch_cost_ms": 0.031807899475097545
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 256,
+      "cols": 16384,
+      "k": 9,
+      "ms_per_launch_k": 0.16964266035291883,
+      "ms_per_launch_2k": 0.16952889495425755,
+      "fixed_batch_cost_ms": 0.0020477771759031538
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 256,
+      "cols": 16384,
+      "k": 9,
+      "ms_per_launch_k": 0.13707733154296875,
+      "ms_per_launch_2k": 0.13613511456383598,
+      "fixed_batch_cost_ms": 0.01695990562438987
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 256,
+      "cols": 16384,
+      "worst_ratio_to_bound": 0.2101296884364953
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 256,
+      "cols": 16384,
+      "worst_ratio_to_bound": 0.04589911609708723
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 256,
+      "cols": 16384,
+      "max_rel_err_vs_float64": 1.1847597805652036e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 64,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07776641386097967
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 64,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014125182713245133
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 64,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.2101074376596894e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 64,
+      "cols": 65536,
+      "k": 9,
+      "ms_per_launch_k": 0.2369599872165256,
+      "ms_per_launch_2k": 0.2329031096564399,
+      "fixed_batch_cost_ms": 0.07302379608154286
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 64,
+      "cols": 65536,
+      "k": 9,
+      "ms_per_launch_k": 0.22265956136915419,
+      "ms_per_launch_2k": 0.2222648991478814,
+      "fixed_batch_cost_ms": 0.007103919982910323
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 64,
+      "cols": 65536,
+      "k": 9,
+      "ms_per_launch_k": 0.21003377437591553,
+      "ms_per_launch_2k": 0.2077582279841105,
+      "fixed_batch_cost_ms": 0.0409598350524904
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 64,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07776641386097967
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 64,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014125182713245133
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 64,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.2101074376596894e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 16,
+      "cols": 262144,
+      "worst_ratio_to_bound": 0.030084050551667005
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 16,
+      "cols": 262144,
+      "worst_ratio_to_bound": 0.005005946315111045
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 16,
+      "cols": 262144,
+      "max_rel_err_vs_float64": 1.3450218371846792e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 16,
+      "cols": 262144,
+      "k": 9,
+      "ms_per_launch_k": 0.5273600154452853,
+      "ms_per_launch_2k": 0.5265635384453667,
+      "fixed_batch_cost_ms": 0.01433658599853449
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 16,
+      "cols": 262144,
+      "k": 9,
+      "ms_per_launch_k": 0.7310221989949545,
+      "ms_per_launch_2k": 0.7302186754014757,
+      "fixed_batch_cost_ms": 0.014463424682618298
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 16,
+      "cols": 262144,
+      "k": 9,
+      "ms_per_launch_k": 0.2098062170876397,
+      "ms_per_launch_2k": 0.2063359949323866,
+      "fixed_batch_cost_ms": 0.0624639987945555
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 16,
+      "cols": 262144,
+      "worst_ratio_to_bound": 0.030084050551667005
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 16,
+      "cols": 262144,
+      "worst_ratio_to_bound": 0.005005946315111045
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 16,
+      "cols": 262144,
+      "max_rel_err_vs_float64": 1.3450218371846792e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 4,
+      "cols": 1048576,
+      "worst_ratio_to_bound": 0.017023797537971005
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 4,
+      "cols": 1048576,
+      "worst_ratio_to_bound": 0.002817166962603281
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 4,
+      "cols": 1048576,
+      "max_rel_err_vs_float64": 1.874225613620689e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 4,
+      "cols": 1048576,
+      "k": 9,
+      "ms_per_launch_k": 1.8725545671251085,
+      "ms_per_launch_2k": 1.8717511494954426,
+      "fixed_batch_cost_ms": 0.014461517333985263
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 4,
+      "cols": 1048576,
+      "k": 9,
+      "ms_per_launch_k": 2.7842489878336587,
+      "ms_per_launch_2k": 2.7834595574273004,
+      "fixed_batch_cost_ms": 0.014209747314448684
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 4,
+      "cols": 1048576,
+      "k": 9,
+      "ms_per_launch_k": 0.3592711024814182,
+      "ms_per_launch_2k": 0.3565795686509874,
+      "fixed_batch_cost_ms": 0.04844760894775446
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 4,
+      "cols": 1048576,
+      "worst_ratio_to_bound": 0.017023797537971005
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 4,
+      "cols": 1048576,
+      "worst_ratio_to_bound": 0.002817166962603281
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 4,
+      "cols": 1048576,
+      "max_rel_err_vs_float64": 1.874225613620689e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 4,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07598453528273828
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 4,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.013189320931201847
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 4,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.1121900413380556e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 4,
+      "cols": 65536,
+      "k": 144,
+      "ms_per_launch_k": 0.07246933380762736,
+      "ms_per_launch_2k": 0.07243733273612128,
+      "fixed_batch_cost_ms": 0.009216308593751776
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 4,
+      "cols": 65536,
+      "k": 144,
+      "ms_per_launch_k": 0.13917156060536703,
+      "ms_per_launch_2k": 0.13917156060536703,
+      "fixed_batch_cost_ms": 0.0
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 4,
+      "cols": 65536,
+      "k": 144,
+      "ms_per_launch_k": 0.024127999941507976,
+      "ms_per_launch_2k": 0.023850111497773066,
+      "fixed_batch_cost_ms": 0.08003187179565419
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 4,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07598453528273828
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 4,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.013173794923556848
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 4,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.187488446513398e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 8,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07738276962968427
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 8,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.013636482285469247
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 8,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.187488446513398e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 8,
+      "cols": 65536,
+      "k": 72,
+      "ms_per_launch_k": 0.1154844495985243,
+      "ms_per_launch_2k": 0.11539910899268256,
+      "fixed_batch_cost_ms": 0.012289047241210715
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 8,
+      "cols": 65536,
+      "k": 72,
+      "ms_per_launch_k": 0.1821582184897529,
+      "ms_per_launch_2k": 0.18200711409250894,
+      "fixed_batch_cost_ms": 0.02175903320312811
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 8,
+      "cols": 65536,
+      "k": 72,
+      "ms_per_launch_k": 0.030592001146740384,
+      "ms_per_launch_2k": 0.030584888325797185,
+      "fixed_batch_cost_ms": 0.0010242462158206456
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 8,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07738276962968427
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 8,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.013636482285469247
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 8,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.187488446513398e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 16,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07850681425538812
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 16,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014178445167733015
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 16,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.1779005408268486e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 16,
+      "cols": 65536,
+      "k": 36,
+      "ms_per_launch_k": 0.14079999923706055,
+      "ms_per_launch_2k": 0.14062933127085367,
+      "fixed_batch_cost_ms": 0.012288093566895197
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 16,
+      "cols": 65536,
+      "k": 36,
+      "ms_per_launch_k": 0.18946845001644558,
+      "ms_per_launch_2k": 0.18881421618991429,
+      "fixed_batch_cost_ms": 0.04710483551025302
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 16,
+      "cols": 65536,
+      "k": 36,
+      "ms_per_launch_k": 0.05529600050714281,
+      "ms_per_launch_2k": 0.0549831125471327,
+      "fixed_batch_cost_ms": 0.022527933120727983
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 16,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07850681425538812
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 16,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014178445167733015
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 16,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.1779005408268486e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 28,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.0770999835258652
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 28,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014125182713245133
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 28,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.2040884503135257e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 28,
+      "cols": 65536,
+      "k": 21,
+      "ms_per_launch_k": 0.15647390910557338,
+      "ms_per_launch_2k": 0.15644494692484537,
+      "fixed_batch_cost_ms": 0.001216411590576394
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 28,
+      "cols": 65536,
+      "k": 21,
+      "ms_per_launch_k": 0.19397485823858351,
+      "ms_per_launch_2k": 0.19387733368646531,
+      "fixed_batch_cost_ms": 0.0040960311889644
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 28,
+      "cols": 65536,
+      "k": 21,
+      "ms_per_launch_k": 0.09176990531739734,
+      "ms_per_launch_2k": 0.09144838083358038,
+      "fixed_batch_cost_ms": 0.013504028320312417
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 28,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.0770999835258652
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 28,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014125182713245133
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 28,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.2040884503135257e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 56,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07776641386097967
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 56,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014125182713245133
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 56,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.206095580821361e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 56,
+      "cols": 65536,
+      "k": 11,
+      "ms_per_launch_k": 0.2128989046270197,
+      "ms_per_launch_2k": 0.2123403549194336,
+      "fixed_batch_cost_ms": 0.012288093566894642
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 56,
+      "cols": 65536,
+      "k": 11,
+      "ms_per_launch_k": 0.21353600241921164,
+      "ms_per_launch_2k": 0.21288436109369452,
+      "fixed_batch_cost_ms": 0.014336109161376676
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 56,
+      "cols": 65536,
+      "k": 11,
+      "ms_per_launch_k": 0.17966545711864124,
+      "ms_per_launch_2k": 0.17910690741105514,
+      "fixed_batch_cost_ms": 0.012288093566894032
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 56,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07776641386097967
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 56,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014125182713245133
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 56,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.206095580821361e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 112,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07830981497983706
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 112,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014125182713245133
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 112,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.2101492422155739e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 112,
+      "cols": 65536,
+      "k": 6,
+      "ms_per_launch_k": 0.606549342473348,
+      "ms_per_launch_2k": 0.5984426736831665,
+      "fixed_batch_cost_ms": 0.09728002548217818
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 112,
+      "cols": 65536,
+      "k": 6,
+      "ms_per_launch_k": 0.5737813313802084,
+      "ms_per_launch_2k": 0.5759146610895792,
+      "fixed_batch_cost_ms": -0.025599956512450284
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 112,
+      "cols": 65536,
+      "k": 6,
+      "ms_per_launch_k": 0.5546666781107584,
+      "ms_per_launch_2k": 0.5522773265838623,
+      "fixed_batch_cost_ms": 0.028672218322753462
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 112,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07830981497983706
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 112,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014125182713245133
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 112,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.2101492422155739e-06
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "multipass",
+      "rows": 224,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07866375066439085
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "fused_online",
+      "rows": 224,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014206936956607798
+    },
+    {
+      "type": "check",
+      "when": "before_timing",
+      "impl": "torch_softmax",
+      "rows": 224,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.2101492422155739e-06
+    },
+    {
+      "type": "linearity",
+      "impl": "multipass",
+      "rows": 224,
+      "cols": 65536,
+      "k": 3,
+      "ms_per_launch_k": 0.7403519948323568,
+      "ms_per_launch_2k": 0.7383039792378744,
+      "fixed_batch_cost_ms": 0.012288093566894531
+    },
+    {
+      "type": "linearity",
+      "impl": "fused_online",
+      "rows": 224,
+      "cols": 65536,
+      "k": 3,
+      "ms_per_launch_k": 0.6212266683578491,
+      "ms_per_launch_2k": 0.6196266810099283,
+      "fixed_batch_cost_ms": 0.009599924087524636
+    },
+    {
+      "type": "linearity",
+      "impl": "torch_softmax",
+      "rows": 224,
+      "cols": 65536,
+      "k": 3,
+      "ms_per_launch_k": 0.7069013118743896,
+      "ms_per_launch_2k": 0.7053013642628988,
+      "fixed_batch_cost_ms": 0.00959968566894509
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "multipass",
+      "rows": 224,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.07866375066439085
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "fused_online",
+      "rows": 224,
+      "cols": 65536,
+      "worst_ratio_to_bound": 0.014206936956607798
+    },
+    {
+      "type": "check",
+      "when": "after_timing",
+      "impl": "torch_softmax",
+      "rows": 224,
+      "cols": 65536,
+      "max_rel_err_vs_float64": 1.2101492422155739e-06
+    }
+  ]
+}

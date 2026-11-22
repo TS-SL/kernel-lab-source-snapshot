@@ -1,0 +1,33 @@
+﻿========= COMPUTE-SANITIZER
+[ RUN  ] device_info
+========= Error: Failed to initialize WDDM debugger interface. Please run EnableDebuggerInterface.bat as an administrator
+========= 
+========= Error: Device not supported. Please refer to the "Supported Devices" section of the sanitizer documentation
+========= 
+  device: NVIDIA GeForce RTX 3060, cc 8.6, 28 SMs x 1536 threads, watchdog=1, driver 13030, runtime 13030, 11211 MiB free / 12288 MiB total
+[  OK  ] device_info
+[ RUN  ] reference_self_check
+[  OK  ] reference_self_check
+[ RUN  ] saxpy_double_rounding_case
+[  OK  ] saxpy_double_rounding_case
+[ RUN  ] saxpy_random_sizes
+  saxpy size (4194304 elements) skipped (--max-n 1048576)
+  saxpy size (16776961 elements) skipped (--max-n 1048576)
+[  OK  ] saxpy_random_sizes
+[ RUN  ] saxpy_special_values
+[  OK  ] saxpy_special_values
+[ RUN  ] saxpy_aliased_host_pointers
+[  OK  ] saxpy_aliased_host_pointers
+[ RUN  ] invalid_arguments
+[  OK  ] invalid_arguments
+[ RUN  ] budget_policy
+[  OK  ] budget_policy
+[ RUN  ] vram_cap
+[  OK  ] vram_cap
+[ SKIP ] error_paths (excluded on the command line)
+[ RUN  ] fill_uniform_determinism
+[  OK  ] fill_uniform_determinism
+0 of 10 tests failed, 1 skipped, 2 cases skipped by --max-n
+========= ERROR SUMMARY: 2 errors
+[gpu_guard] 3.2 s, peak 43 C, log: results\raw\m3-sanitizer-smoke-synccheck-gpu.csv
+

@@ -1,0 +1,31 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 26, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "release",
+      "displayName": "Ninja + MSVC + CUDA, Release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CUDA_ARCHITECTURES": "86"
+      }
+    },
+    {
+      "name": "debug",
+      "inherits": "release",
+      "displayName": "Ninja + MSVC + CUDA, Debug",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "release", "configurePreset": "release" },
+    { "name": "debug", "configurePreset": "debug" }
+  ],
+  "testPresets": [
+    { "name": "release", "configurePreset": "release", "output": { "outputOnFailure": true } },
+    { "name": "debug", "configurePreset": "debug", "output": { "outputOnFailure": true } }
+  ]
+}

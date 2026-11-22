@@ -1,0 +1,60 @@
+﻿========= COMPUTE-SANITIZER
+[ RUN  ] ln_uniform_affine
+========= Error: Failed to initialize WDDM debugger interface. Please run EnableDebuggerInterface.bat as an administrator
+========= 
+========= Error: Device not supported. Please refer to the "Supported Devices" section of the sanitizer documentation
+========= 
+  U[-10,10] affine: worst error 0.645 of the derived bound
+[  OK  ] ln_uniform_affine
+[ RUN  ] ln_uniform_no_affine
+  U[-10,10] no affine: worst error 0.674 of the derived bound
+[  OK  ] ln_uniform_no_affine
+[ RUN  ] ln_large_offset
+  1000+U[-1,1]: worst error 0.507 of the derived bound
+[  OK  ] ln_large_offset
+[ RUN  ] ln_eps_dominated
+  U[-1e-3,1e-3] eps-dominated: worst error 0.612 of the derived bound
+[  OK  ] ln_eps_dominated
+[ RUN  ] ln_eps_values
+[  OK  ] ln_eps_values
+[ RUN  ] ln_constant_rows
+[  OK  ] ln_constant_rows
+[ RUN  ] ln_extreme_in_domain
+[  OK  ] ln_extreme_in_domain
+[ RUN  ] ln_outside_domain_documented
+[  OK  ] ln_outside_domain_documented
+[ RUN  ] ln_max_rows
+  max rows (2097152 elements) skipped (--max-n 1048576)
+[  OK  ] ln_max_rows
+[ RUN  ] ln_outlier_first_element
+[  OK  ] ln_outlier_first_element
+[ RUN  ] ln_padded_launcher_and_occupancy
+[  OK  ] ln_padded_launcher_and_occupancy
+[ RUN  ] ln_special_values
+[  OK  ] ln_special_values
+[ RUN  ] ln_outlier_positions
+[  OK  ] ln_outlier_positions
+[ RUN  ] ln_scale_path_rounding
+[  OK  ] ln_scale_path_rounding
+[ RUN  ] ln_smem_bitwise_equals_block
+[  OK  ] ln_smem_bitwise_equals_block
+[ RUN  ] ln_deterministic
+[  OK  ] ln_deterministic
+[ RUN  ] ln_inplace_host
+[  OK  ] ln_inplace_host
+[ RUN  ] ln_guard_bands
+[  OK  ] ln_guard_bands
+[ RUN  ] ln_invalid_and_unsupported
+[  OK  ] ln_invalid_and_unsupported
+[ RUN  ] ln_auto_dispatch
+[  OK  ] ln_auto_dispatch
+[ RUN  ] ln_naive_instability_study
+  naive, centered rows: worst 0.083 of its own bound
+  offset 100, 8 seeds: two-pass worst 0.563 of its bound; naive worst error >= 248 x the two-pass bound on every seed, 0 NaN outputs in total
+  offset 1000, 8 seeds: two-pass worst 0.493 of its bound; naive worst error >= 2.32e+03 x the two-pass bound on every seed, 0 NaN outputs in total
+  offset 10000, 8 seeds: two-pass worst 0.801 of its bound; naive worst error >= inf x the two-pass bound on every seed, 245760 NaN outputs in total
+[  OK  ] ln_naive_instability_study
+0 of 21 tests failed, 0 skipped, 1 cases skipped by --max-n
+========= ERROR SUMMARY: 2 errors
+[gpu_guard] 5.3 s, peak 45 C, log: results\raw\m3-sanitizer-layernorm-initcheck-gpu.csv
+

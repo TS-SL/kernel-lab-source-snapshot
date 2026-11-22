@@ -1,0 +1,26 @@
+﻿-- The CXX compiler identification is MSVC 19.44.35230.0
+-- The CUDA compiler identification is NVIDIA 13.3.73 with host compiler MSVC 19.44.35230.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/bin/nvcc.exe - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Found CUDAToolkit: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/include;C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/include/cccl (found suitable version "13.3.73", minimum required is "13.3")
+-- Configuring done (6.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: <repo>/build/release
+[1/7] Building CXX object CMakeFiles\kernellens_objs.dir\src\common\error_state.cpp.obj
+[2/7] Building CXX object CMakeFiles\kernellens_objs.dir\src\kernellens_api.cpp.obj
+[3/7] Building CXX object CMakeFiles\kernellens_objs.dir\src\common\device_buffer.cpp.obj
+[4/7] Building CXX object CMakeFiles\test_smoke.dir\tests\cpp\test_smoke.cpp.obj
+[5/7] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\saxpy.cu.obj
+saxpy.cu
+tmpxft_0000de4c_00000000-7_saxpy.cudafe1.cpp
+[6/7] Linking CXX shared library kernellens.dll
+[7/7] Linking CXX executable test_smoke.exe
+

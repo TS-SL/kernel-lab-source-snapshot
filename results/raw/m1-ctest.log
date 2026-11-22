@@ -1,0 +1,151 @@
+﻿UpdateCTestConfiguration  from :<repo>/DartConfiguration.tcl
+Test project <repo>/build/release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: cpp_smoke
+
+1: Test command: <repo>\build\release\test_smoke.exe
+1: Working Directory: <repo>/build/release
+1: Test timeout computed to be: 10000000
+1: [ RUN  ] device_info
+1:   device: NVIDIA GeForce RTX 3060, cc 8.6, 28 SMs x 1536 threads, watchdog=1, driver 13030, runtime 13030, 11253 MiB free / 12288 MiB total
+1: [  OK  ] device_info
+1: [ RUN  ] reference_self_check
+1: [  OK  ] reference_self_check
+1: [ RUN  ] saxpy_double_rounding_case
+1: [  OK  ] saxpy_double_rounding_case
+1: [ RUN  ] saxpy_random_sizes
+1: [  OK  ] saxpy_random_sizes
+1: [ RUN  ] saxpy_special_values
+1: [  OK  ] saxpy_special_values
+1: [ RUN  ] saxpy_aliased_host_pointers
+1: [  OK  ] saxpy_aliased_host_pointers
+1: [ RUN  ] invalid_arguments
+1: [  OK  ] invalid_arguments
+1: [ RUN  ] budget_policy
+1: [  OK  ] budget_policy
+1: [ RUN  ] vram_cap
+1: [  OK  ] vram_cap
+1: [ RUN  ] error_paths
+1:   invalid launch reported as: src\cuda\saxpy.cu:60: cudaGetLastError() -> cudaErrorInvalidValue: invalid argument
+1: [  OK  ] error_paths
+1: [ RUN  ] fill_uniform_determinism
+1: [  OK  ] fill_uniform_determinism
+1: 0 of 11 tests failed, 0 skipped, 0 sizes skipped by --max-n
+1/2 Test #1: cpp_smoke ........................   Passed    1.91 sec
+test 2
+    Start 2: python_reference
+
+2: Test command: <repo>\.venv\Scripts\python.exe "-m" "pytest" "-v" "-p" "no:cacheprovider" "<repo>/tests/python"
+2: Working Directory: <repo>/build/release
+2: Environment variables: 
+2:  KERNELLENS_LIB=<repo>/build/release/kernellens.dll
+2: Test timeout computed to be: 10000000
+2: ============================= test session starts =============================
+2: platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0 -- <repo>\.venv\Scripts\python.exe
+2: kernellens device: NVIDIA GeForce RTX 3060 cc 8.6, driver CUDA 13030, runtime 13030
+2: torch 2.15.0+cu132 (CUDA 13.2, available=True)
+2: rootdir: <repo>
+2: collecting ... collected 87 items
+2: 
+2: ..\..\tests\python\test_gpu_guard.py::test_time_limit_kills_whole_process_tree PASSED [  1%]
+2: ..\..\tests\python\test_gpu_guard.py::test_exit_code_is_passed_through PASSED [  2%]
+2: ..\..\tests\python\test_gpu_guard.py::test_refuses_to_start_above_temperature_limit PASSED [  3%]
+2: ..\..\tests\python\test_gpu_guard.py::test_violation_rules PASSED        [  4%]
+2: ..\..\tests\python\test_smoke.py::test_device_info PASSED                [  5%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[0.0-1.0-0] PASSED [  6%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[0.0-1.0-1] PASSED [  8%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[0.0-1.0-42] PASSED [  9%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[0.0-1.0-18446744073709551615] PASSED [ 10%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-100.0-100.0-0] PASSED [ 11%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-100.0-100.0-1] PASSED [ 12%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-100.0-100.0-42] PASSED [ 13%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-100.0-100.0-18446744073709551615] PASSED [ 14%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.0-5.0-0] PASSED [ 16%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.0-5.0-1] PASSED [ 17%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.0-5.0-42] PASSED [ 18%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.0-5.0-18446744073709551615] PASSED [ 19%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-0.001-0.001-0] PASSED [ 20%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-0.001-0.001-1] PASSED [ 21%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-0.001-0.001-42] PASSED [ 22%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-0.001-0.001-18446744073709551615] PASSED [ 24%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.4e+38-3.4e+38-0] PASSED [ 25%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.4e+38-3.4e+38-1] PASSED [ 26%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.4e+38-3.4e+38-42] PASSED [ 27%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.4e+38-3.4e+38-18446744073709551615] PASSED [ 28%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[1e-38-2e-38-0] PASSED [ 29%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[1e-38-2e-38-1] PASSED [ 31%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[1e-38-2e-38-42] PASSED [ 32%]
+2: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[1e-38-2e-38-18446744073709551615] PASSED [ 33%]
+2: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[1.0-1.0] PASSED [ 34%]
+2: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[2.0-1.0] PASSED [ 35%]
+2: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[-inf-0.0] PASSED [ 36%]
+2: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[0.0-inf] PASSED [ 37%]
+2: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[nan-1.0] PASSED [ 39%]
+2: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[0.0-nan] PASSED [ 40%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-1] PASSED [ 41%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-2] PASSED [ 42%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-31] PASSED [ 43%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-32] PASSED [ 44%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-33] PASSED [ 45%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-255] PASSED [ 47%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-256] PASSED [ 48%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-257] PASSED [ 49%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-1000] PASSED [ 50%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-1048576] PASSED [ 51%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-16776961] PASSED [ 52%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-1] PASSED [ 54%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-2] PASSED [ 55%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-31] PASSED [ 56%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-32] PASSED [ 57%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-33] PASSED [ 58%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-255] PASSED [ 59%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-256] PASSED [ 60%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-257] PASSED [ 62%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-1000] PASSED [ 63%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-1048576] PASSED [ 64%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-16776961] PASSED [ 65%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-1] PASSED [ 66%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-2] PASSED [ 67%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-31] PASSED [ 68%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-32] PASSED [ 70%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-33] PASSED [ 71%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-255] PASSED [ 72%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-256] PASSED [ 73%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-257] PASSED [ 74%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-1000] PASSED [ 75%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-1048576] PASSED [ 77%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-16776961] PASSED [ 78%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-1] PASSED [ 79%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-2] PASSED [ 80%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-31] PASSED [ 81%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-32] PASSED [ 82%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-33] PASSED [ 83%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-255] PASSED [ 85%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-256] PASSED [ 86%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-257] PASSED [ 87%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-1000] PASSED [ 88%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-1048576] PASSED [ 89%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-16776961] PASSED [ 90%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_double_rounding_midpoint PASSED [ 91%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_matches_torch_float64 PASSED [ 93%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_special_values PASSED       [ 94%]
+2: ..\..\tests\python\test_smoke.py::test_saxpy_zero_length_is_noop PASSED  [ 95%]
+2: ..\..\tests\python\test_smoke.py::test_invalid_arguments_are_rejected PASSED [ 96%]
+2: ..\..\tests\python\test_smoke.py::test_vram_cap_refuses_before_touching_memory[one] PASSED [ 97%]
+2: ..\..\tests\python\test_smoke.py::test_vram_cap_refuses_before_touching_memory[two] PASSED [ 98%]
+2: ..\..\tests\python\test_smoke.py::test_no_device_memory_leaks_between_calls PASSED [100%]
+2: 
+2: ============================= 87 passed in 18.08s =============================
+2/2 Test #2: python_reference .................   Passed   18.95 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =  20.89 sec
+[gpu_guard] 21.1 s, peak 41 C, log: results\raw\m1-ctest-gpu.csv
+

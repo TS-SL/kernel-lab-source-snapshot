@@ -1,0 +1,365 @@
+﻿UpdateCTestConfiguration  from :<repo>/DartConfiguration.tcl
+Test project <repo>/build/release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: cpp_smoke
+
+1: Test command: <repo>\build\release\test_smoke.exe
+1: Working Directory: <repo>/build/release
+1: Test timeout computed to be: 10000000
+1: [ RUN  ] device_info
+1:   device: NVIDIA GeForce RTX 3060, cc 8.6, 28 SMs x 1536 threads, watchdog=1, driver 13030, runtime 13030, 11253 MiB free / 12288 MiB total
+1: [  OK  ] device_info
+1: [ RUN  ] reference_self_check
+1: [  OK  ] reference_self_check
+1: [ RUN  ] saxpy_double_rounding_case
+1: [  OK  ] saxpy_double_rounding_case
+1: [ RUN  ] saxpy_random_sizes
+1: [  OK  ] saxpy_random_sizes
+1: [ RUN  ] saxpy_special_values
+1: [  OK  ] saxpy_special_values
+1: [ RUN  ] saxpy_aliased_host_pointers
+1: [  OK  ] saxpy_aliased_host_pointers
+1: [ RUN  ] invalid_arguments
+1: [  OK  ] invalid_arguments
+1: [ RUN  ] budget_policy
+1: [  OK  ] budget_policy
+1: [ RUN  ] vram_cap
+1: [  OK  ] vram_cap
+1: [ RUN  ] error_paths
+1:   invalid launch reported as: src\cuda\saxpy.cu:60: cudaGetLastError() -> cudaErrorInvalidValue: invalid argument
+1: [  OK  ] error_paths
+1: [ RUN  ] fill_uniform_determinism
+1: [  OK  ] fill_uniform_determinism
+1: 0 of 11 tests failed, 0 skipped, 0 cases skipped by --max-n
+1/3 Test #1: cpp_smoke ........................   Passed    1.65 sec
+test 2
+    Start 2: cpp_softmax
+
+2: Test command: <repo>\build\release\test_softmax.exe
+2: Working Directory: <repo>/build/release
+2: Test timeout computed to be: 10000000
+2: [ RUN  ] softmax_uniform
+2:   uniform[-10,10]: worst error 0.611 of the derived bound
+2: [  OK  ] softmax_uniform
+2: [ RUN  ] softmax_large_offset
+2:   uniform[1000,1010]: worst error 0.223 of the derived bound
+2: [  OK  ] softmax_large_offset
+2: [ RUN  ] softmax_wide_range
+2:   uniform[-100,100]: worst error 0.836 of the derived bound
+2: [  OK  ] softmax_wide_range
+2: [ RUN  ] softmax_grid_inputs_tight_bound
+2:   grid[-16,16] (tight bound): worst error 0.305 of the bound
+2: [  OK  ] softmax_grid_inputs_tight_bound
+2: [ RUN  ] softmax_exp_accuracy
+2:   exp accuracy rows [0,-t]: worst error 0.290 of the bound
+2: [  OK  ] softmax_exp_accuracy
+2: [ RUN  ] softmax_constant_rows
+2: [  OK  ] softmax_constant_rows
+2: [ RUN  ] softmax_one_hot
+2: [  OK  ] softmax_one_hot
+2: [ RUN  ] softmax_special_values
+2: [  OK  ] softmax_special_values
+2: [ RUN  ] softmax_max_spike_positions
+2: [  OK  ] softmax_max_spike_positions
+2: [ RUN  ] softmax_extreme_finite_values
+2: [  OK  ] softmax_extreme_finite_values
+2: [ RUN  ] softmax_guard_bands
+2: [  OK  ] softmax_guard_bands
+2: [ RUN  ] softmax_device_api_validation
+2: [  OK  ] softmax_device_api_validation
+2: [ RUN  ] softmax_single_column_is_one
+2: [  OK  ] softmax_single_column_is_one
+2: [ RUN  ] softmax_deterministic
+2: [  OK  ] softmax_deterministic
+2: [ RUN  ] softmax_inplace_host
+2: [  OK  ] softmax_inplace_host
+2: [ RUN  ] softmax_invalid_and_unsupported
+2: [  OK  ] softmax_invalid_and_unsupported
+2: [ RUN  ] softmax_auto_dispatch
+2: [  OK  ] softmax_auto_dispatch
+2: 0 of 17 tests failed, 0 skipped, 0 cases skipped by --max-n
+2/3 Test #2: cpp_softmax ......................   Passed    0.65 sec
+test 3
+    Start 3: python_reference
+
+3: Test command: <repo>\.venv\Scripts\python.exe "-m" "pytest" "-v" "-p" "no:cacheprovider" "<repo>/tests/python"
+3: Working Directory: <repo>/build/release
+3: Environment variables: 
+3:  KERNELLENS_LIB=<repo>/build/release/kernellens.dll
+3: Test timeout computed to be: 10000000
+3: ============================= test session starts =============================
+3: platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0 -- <repo>\.venv\Scripts\python.exe
+3: kernellens device: NVIDIA GeForce RTX 3060 cc 8.6, driver CUDA 13030, runtime 13030
+3: torch 2.15.0+cu132 (CUDA 13.2, available=True)
+3: rootdir: <repo>
+3: collecting ... collected 254 items
+3: 
+3: ..\..\tests\python\test_gpu_guard.py::test_time_limit_kills_whole_process_tree PASSED [  0%]
+3: ..\..\tests\python\test_gpu_guard.py::test_exit_code_is_passed_through PASSED [  0%]
+3: ..\..\tests\python\test_gpu_guard.py::test_refuses_to_start_above_temperature_limit PASSED [  1%]
+3: ..\..\tests\python\test_gpu_guard.py::test_violation_rules PASSED        [  1%]
+3: ..\..\tests\python\test_smoke.py::test_device_info PASSED                [  1%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[0.0-1.0-0] PASSED [  2%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[0.0-1.0-1] PASSED [  2%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[0.0-1.0-42] PASSED [  3%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[0.0-1.0-18446744073709551615] PASSED [  3%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-100.0-100.0-0] PASSED [  3%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-100.0-100.0-1] PASSED [  4%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-100.0-100.0-42] PASSED [  4%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-100.0-100.0-18446744073709551615] PASSED [  5%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.0-5.0-0] PASSED [  5%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.0-5.0-1] PASSED [  5%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.0-5.0-42] PASSED [  6%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.0-5.0-18446744073709551615] PASSED [  6%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-0.001-0.001-0] PASSED [  7%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-0.001-0.001-1] PASSED [  7%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-0.001-0.001-42] PASSED [  7%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-0.001-0.001-18446744073709551615] PASSED [  8%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.4e+38-3.4e+38-0] PASSED [  8%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.4e+38-3.4e+38-1] PASSED [  9%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.4e+38-3.4e+38-42] PASSED [  9%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[-3.4e+38-3.4e+38-18446744073709551615] PASSED [  9%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[1e-38-2e-38-0] PASSED [ 10%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[1e-38-2e-38-1] PASSED [ 10%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[1e-38-2e-38-42] PASSED [ 11%]
+3: ..\..\tests\python\test_smoke.py::test_prng_bit_identical_across_languages[1e-38-2e-38-18446744073709551615] PASSED [ 11%]
+3: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[1.0-1.0] PASSED [ 11%]
+3: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[2.0-1.0] PASSED [ 12%]
+3: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[-inf-0.0] PASSED [ 12%]
+3: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[0.0-inf] PASSED [ 12%]
+3: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[nan-1.0] PASSED [ 13%]
+3: ..\..\tests\python\test_smoke.py::test_prng_rejects_bad_bounds_without_writing[0.0-nan] PASSED [ 13%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-1] PASSED [ 14%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-2] PASSED [ 14%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-31] PASSED [ 14%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-32] PASSED [ 15%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-33] PASSED [ 15%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-255] PASSED [ 16%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-256] PASSED [ 16%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-257] PASSED [ 16%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-1000] PASSED [ 17%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-1048576] PASSED [ 17%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.0-16776961] PASSED [ 18%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-1] PASSED [ 18%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-2] PASSED [ 18%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-31] PASSED [ 19%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-32] PASSED [ 19%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-33] PASSED [ 20%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-255] PASSED [ 20%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-256] PASSED [ 20%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-257] PASSED [ 21%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-1000] PASSED [ 21%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-1048576] PASSED [ 22%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[1.0-16776961] PASSED [ 22%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-1] PASSED [ 22%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-2] PASSED [ 23%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-31] PASSED [ 23%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-32] PASSED [ 24%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-33] PASSED [ 24%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-255] PASSED [ 24%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-256] PASSED [ 25%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-257] PASSED [ 25%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-1000] PASSED [ 25%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-1048576] PASSED [ 26%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[-2.5-16776961] PASSED [ 26%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-1] PASSED [ 27%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-2] PASSED [ 27%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-31] PASSED [ 27%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-32] PASSED [ 28%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-33] PASSED [ 28%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-255] PASSED [ 29%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-256] PASSED [ 29%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-257] PASSED [ 29%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-1000] PASSED [ 30%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-1048576] PASSED [ 30%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_reference[0.001-16776961] PASSED [ 31%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_double_rounding_midpoint PASSED [ 31%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_matches_torch_float64 PASSED [ 31%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_special_values PASSED       [ 32%]
+3: ..\..\tests\python\test_smoke.py::test_saxpy_zero_length_is_noop PASSED  [ 32%]
+3: ..\..\tests\python\test_smoke.py::test_invalid_arguments_are_rejected PASSED [ 33%]
+3: ..\..\tests\python\test_smoke.py::test_vram_cap_refuses_before_touching_memory[one] PASSED [ 33%]
+3: ..\..\tests\python\test_smoke.py::test_vram_cap_refuses_before_touching_memory[two] PASSED [ 33%]
+3: ..\..\tests\python\test_smoke.py::test_no_device_memory_leaks_between_calls PASSED [ 34%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1-auto] PASSED [ 34%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1-multipass] PASSED [ 35%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1-fused_online] PASSED [ 35%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1-fused_warp] PASSED [ 35%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-32-auto] PASSED [ 36%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-32-multipass] PASSED [ 36%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-32-fused_online] PASSED [ 37%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-32-fused_warp] PASSED [ 37%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-33-auto] PASSED [ 37%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-33-multipass] PASSED [ 38%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-33-fused_online] PASSED [ 38%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-33-fused_warp] PASSED [ 38%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-257-auto] PASSED [ 39%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-257-multipass] PASSED [ 39%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-257-fused_online] PASSED [ 40%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-257-fused_warp] PASSED [ 40%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1024-auto] PASSED [ 40%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1024-multipass] PASSED [ 41%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1024-fused_online] PASSED [ 41%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1024-fused_warp] PASSED [ 42%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1025-auto] PASSED [ 42%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1025-multipass] PASSED [ 42%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-7-1025-fused_online] PASSED [ 43%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-5-4097-auto] PASSED [ 43%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-5-4097-multipass] PASSED [ 44%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-5-4097-fused_online] PASSED [ 44%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-2-65536-auto] PASSED [ 44%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-2-65536-multipass] PASSED [ 45%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-2-65536-fused_online] PASSED [ 45%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-1-1048576-auto] PASSED [ 46%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-1-1048576-multipass] PASSED [ 46%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-10.0-10.0-1-1048576-fused_online] PASSED [ 46%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1-auto] PASSED [ 47%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1-multipass] PASSED [ 47%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1-fused_online] PASSED [ 48%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1-fused_warp] PASSED [ 48%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-32-auto] PASSED [ 48%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-32-multipass] PASSED [ 49%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-32-fused_online] PASSED [ 49%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-32-fused_warp] PASSED [ 50%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-33-auto] PASSED [ 50%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-33-multipass] PASSED [ 50%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-33-fused_online] PASSED [ 51%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-33-fused_warp] PASSED [ 51%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-257-auto] PASSED [ 51%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-257-multipass] PASSED [ 52%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-257-fused_online] PASSED [ 52%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-257-fused_warp] PASSED [ 53%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1024-auto] PASSED [ 53%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1024-multipass] PASSED [ 53%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1024-fused_online] PASSED [ 54%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1024-fused_warp] PASSED [ 54%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1025-auto] PASSED [ 55%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1025-multipass] PASSED [ 55%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-7-1025-fused_online] PASSED [ 55%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-5-4097-auto] PASSED [ 56%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-5-4097-multipass] PASSED [ 56%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-5-4097-fused_online] PASSED [ 57%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-2-65536-auto] PASSED [ 57%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-2-65536-multipass] PASSED [ 57%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-2-65536-fused_online] PASSED [ 58%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-1-1048576-auto] PASSED [ 58%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-1-1048576-multipass] PASSED [ 59%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[1000.0-1010.0-1-1048576-fused_online] PASSED [ 59%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1-auto] PASSED [ 59%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1-multipass] PASSED [ 60%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1-fused_online] PASSED [ 60%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1-fused_warp] PASSED [ 61%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-32-auto] PASSED [ 61%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-32-multipass] PASSED [ 61%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-32-fused_online] PASSED [ 62%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-32-fused_warp] PASSED [ 62%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-33-auto] PASSED [ 62%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-33-multipass] PASSED [ 63%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-33-fused_online] PASSED [ 63%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-33-fused_warp] PASSED [ 64%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-257-auto] PASSED [ 64%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-257-multipass] PASSED [ 64%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-257-fused_online] PASSED [ 65%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-257-fused_warp] PASSED [ 65%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1024-auto] PASSED [ 66%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1024-multipass] PASSED [ 66%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1024-fused_online] PASSED [ 66%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1024-fused_warp] PASSED [ 67%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1025-auto] PASSED [ 67%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1025-multipass] PASSED [ 68%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-7-1025-fused_online] PASSED [ 68%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-5-4097-auto] PASSED [ 68%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-5-4097-multipass] PASSED [ 69%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-5-4097-fused_online] PASSED [ 69%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-2-65536-auto] PASSED [ 70%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-2-65536-multipass] PASSED [ 70%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-2-65536-fused_online] PASSED [ 70%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-1-1048576-auto] PASSED [ 71%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-1-1048576-multipass] PASSED [ 71%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_float64_reference[-100.0-100.0-1-1048576-fused_online] PASSED [ 72%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1-auto] PASSED [ 72%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1-multipass] PASSED [ 72%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1-fused_online] PASSED [ 73%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1-fused_warp] PASSED [ 73%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-32-auto] PASSED [ 74%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-32-multipass] PASSED [ 74%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-32-fused_online] PASSED [ 74%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-32-fused_warp] PASSED [ 75%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-33-auto] PASSED [ 75%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-33-multipass] PASSED [ 75%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-33-fused_online] PASSED [ 76%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-33-fused_warp] PASSED [ 76%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-257-auto] PASSED [ 77%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-257-multipass] PASSED [ 77%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-257-fused_online] PASSED [ 77%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-257-fused_warp] PASSED [ 78%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1024-auto] PASSED [ 78%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1024-multipass] PASSED [ 79%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1024-fused_online] PASSED [ 79%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1024-fused_warp] PASSED [ 79%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1025-auto] PASSED [ 80%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1025-multipass] PASSED [ 80%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[7-1025-fused_online] PASSED [ 81%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[5-4097-auto] PASSED [ 81%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[5-4097-multipass] PASSED [ 81%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[5-4097-fused_online] PASSED [ 82%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[2-65536-auto] PASSED [ 82%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[2-65536-multipass] PASSED [ 83%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[2-65536-fused_online] PASSED [ 83%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[1-1048576-auto] PASSED [ 83%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[1-1048576-multipass] PASSED [ 84%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_grid_inputs_tight_bound[1-1048576-fused_online] PASSED [ 84%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_exp_accuracy_two_element_rows[auto] PASSED [ 85%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_exp_accuracy_two_element_rows[multipass] PASSED [ 85%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_exp_accuracy_two_element_rows[fused_online] PASSED [ 85%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_exp_accuracy_two_element_rows[fused_warp] PASSED [ 86%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_matches_torch_float64 PASSED [ 86%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[1-auto] PASSED [ 87%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[1-multipass] PASSED [ 87%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[1-fused_online] PASSED [ 87%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[1-fused_warp] PASSED [ 88%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[31-auto] PASSED [ 88%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[31-multipass] PASSED [ 88%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[31-fused_online] PASSED [ 89%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[31-fused_warp] PASSED [ 89%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[33-auto] PASSED [ 90%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[33-multipass] PASSED [ 90%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[33-fused_online] PASSED [ 90%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[33-fused_warp] PASSED [ 91%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[1024-auto] PASSED [ 91%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[1024-multipass] PASSED [ 92%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[1024-fused_online] PASSED [ 92%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[1024-fused_warp] PASSED [ 92%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[3000-auto] PASSED [ 93%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[3000-multipass] PASSED [ 93%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_special_values_match_torch_semantics[3000-fused_online] PASSED [ 94%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_auto_is_bitwise_the_resolved_impl[9-1-3] PASSED [ 94%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_auto_is_bitwise_the_resolved_impl[9-1024-3] PASSED [ 94%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_auto_is_bitwise_the_resolved_impl[9-2048-1] PASSED [ 95%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_auto_is_bitwise_the_resolved_impl[63-1025-1] PASSED [ 95%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_auto_is_bitwise_the_resolved_impl[64-1025-2] PASSED [ 96%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_rejects_bad_input_without_writing PASSED [ 96%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_max_spike_positions[33] PASSED [ 96%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_max_spike_positions[257] PASSED [ 97%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_max_spike_positions[1024] PASSED [ 97%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_max_spike_positions[4097] PASSED [ 98%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_max_spike_positions[70000] PASSED [ 98%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_extreme_finite_values PASSED [ 98%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_workspace_bytes PASSED  [ 99%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_device_api_on_torch_tensors PASSED [ 99%]
+3: ..\..\tests\python\test_softmax.py::test_softmax_inplace_host PASSED     [100%]
+3: 
+3: ============================ 254 passed in 20.10s =============================
+3/3 Test #3: python_reference .................   Passed   21.00 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =  23.35 sec
+[gpu_guard] 24.2 s, peak 43 C, log: results\raw\m2-ctest-gpu.csv
+

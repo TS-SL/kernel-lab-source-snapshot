@@ -1,0 +1,37 @@
+# Build trees and Python environment (recreate from README)
+/build/
+/out/
+/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Compiler/IDE droppings
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.dll
+*.exe
+.vs/
+.vscode/
+CMakeUserPresets.json
+
+# Evidence: only archived series (m1-* ... m5-*) and the environment report
+# are committed; ad-hoc runs (-Name latest, diag, ...) stay local.
+/results/raw/*
+!/results/raw/m[0-9]-*
+!/results/raw/environment.txt
+/results/processed/*
+!/results/processed/m[0-9]-*
+
+# Profiler reports are large; commit exported summaries instead
+*.ncu-rep
+*.nsys-rep
+
+
+# Secrets must never be committed
+.env
+*.pem
+*.key

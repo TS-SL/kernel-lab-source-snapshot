@@ -1,0 +1,35 @@
+﻿========= COMPUTE-SANITIZER
+[ RUN  ] gemm_boundary_shapes_uniform
+  U[-1,1], 52 shapes: worst error 0.967 of the derived bound
+[  OK  ] gemm_boundary_shapes_uniform
+[ RUN  ] gemm_wide_magnitudes
+  magnitudes 2^-30..2^30: worst error 0.008 of the derived bound
+[  OK  ] gemm_wide_magnitudes
+[ RUN  ] gemm_integer_exact
+  integer exact (8487168 elements) skipped (--max-n 1048576)
+[  OK  ] gemm_integer_exact
+[ RUN  ] gemm_bitwise_identical
+  bitwise (16777216 elements) skipped (--max-n 1048576)
+  bitwise (4096000 elements) skipped (--max-n 1048576)
+[  OK  ] gemm_bitwise_identical
+[ RUN  ] gemm_cublas_within_bound
+  cublas bound (4107984 elements) skipped (--max-n 1048576)
+  cublas bound (16777216 elements) skipped (--max-n 1048576)
+  cuBLAS: worst error 0.060 of the derived bound
+[  OK  ] gemm_cublas_within_bound
+[ RUN  ] gemm_k_zero_and_one
+[  OK  ] gemm_k_zero_and_one
+[ RUN  ] gemm_special_values
+[  OK  ] gemm_special_values
+[ RUN  ] gemm_tiny_products_and_signed_zeros
+[  OK  ] gemm_tiny_products_and_signed_zeros
+[ RUN  ] gemm_guard_bands
+[  OK  ] gemm_guard_bands
+[ RUN  ] gemm_invalid_and_unsupported
+[  OK  ] gemm_invalid_and_unsupported
+[ RUN  ] gemm_host_aliasing
+[  OK  ] gemm_host_aliasing
+0 of 11 tests failed, 0 skipped, 5 cases skipped by --max-n
+========= ERROR SUMMARY: 0 errors
+[gpu_guard] 4.2 s, peak 63 C, log: results\raw\m5-sanitizer-gemm-synccheck-gpu.csv
+

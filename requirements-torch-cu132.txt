@@ -1,0 +1,6 @@
+# PyTorch is an independent reference only (KernelLens does not link to it).
+# CUDA 13.2 build: runs on drivers supporting CUDA >= 13.2 (verified on R610 / CUDA 13.3).
+# Wheel size 2,108,273,925 bytes (HTTP Content-Length, checked 2026-11-18).
+# Install:  .venv\Scripts\python.exe -m pip install --no-cache-dir -r requirements-torch-cu132.txt
+--index-url https://download.pytorch.org/whl/cu132
+torch==2.15.0+cu132

@@ -1,0 +1,48 @@
+﻿========= COMPUTE-SANITIZER
+[ RUN  ] softmax_uniform
+========= Error: Failed to initialize WDDM debugger interface. Please run EnableDebuggerInterface.bat as an administrator
+========= 
+========= Error: Device not supported. Please refer to the "Supported Devices" section of the sanitizer documentation
+========= 
+  uniform[-10,10]: worst error 0.611 of the derived bound
+[  OK  ] softmax_uniform
+[ RUN  ] softmax_large_offset
+  uniform[1000,1010]: worst error 0.223 of the derived bound
+[  OK  ] softmax_large_offset
+[ RUN  ] softmax_wide_range
+  uniform[-100,100]: worst error 0.836 of the derived bound
+[  OK  ] softmax_wide_range
+[ RUN  ] softmax_grid_inputs_tight_bound
+  grid[-16,16] (tight bound): worst error 0.305 of the bound
+[  OK  ] softmax_grid_inputs_tight_bound
+[ RUN  ] softmax_exp_accuracy
+  exp accuracy rows [0,-t]: worst error 0.290 of the bound
+[  OK  ] softmax_exp_accuracy
+[ RUN  ] softmax_constant_rows
+[  OK  ] softmax_constant_rows
+[ RUN  ] softmax_one_hot
+[  OK  ] softmax_one_hot
+[ RUN  ] softmax_special_values
+[  OK  ] softmax_special_values
+[ RUN  ] softmax_max_spike_positions
+[  OK  ] softmax_max_spike_positions
+[ RUN  ] softmax_extreme_finite_values
+[  OK  ] softmax_extreme_finite_values
+[ RUN  ] softmax_guard_bands
+[  OK  ] softmax_guard_bands
+[ RUN  ] softmax_device_api_validation
+[  OK  ] softmax_device_api_validation
+[ RUN  ] softmax_single_column_is_one
+[  OK  ] softmax_single_column_is_one
+[ RUN  ] softmax_deterministic
+[  OK  ] softmax_deterministic
+[ RUN  ] softmax_inplace_host
+[  OK  ] softmax_inplace_host
+[ RUN  ] softmax_invalid_and_unsupported
+[  OK  ] softmax_invalid_and_unsupported
+[ RUN  ] softmax_auto_dispatch
+[  OK  ] softmax_auto_dispatch
+0 of 17 tests failed, 0 skipped, 0 cases skipped by --max-n
+========= ERROR SUMMARY: 2 errors
+[gpu_guard] 3.2 s, peak 43 C, log: results\raw\m2-sanitizer-softmax-initcheck-gpu.csv
+

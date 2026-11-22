@@ -1,0 +1,35 @@
+﻿# Nsight Compute 2026.2.1 access probe, [date redacted]
+# command: ncu --kernel-name regex:softmax_warp_kernel --launch-count 1 --metrics dram__bytes_read.sum,dram__bytes_write.sum,gpu__time_duration.sum build\release\test_softmax.exe (under gpu_guard; non-elevated shell)
+[ RUN  ] softmax_uniform
+==PROF== Connected to process 22764 (<repo>\build\release\test_softmax.exe)
+==ERROR== ERR_NVGPUCTRPERM - The user does not have permission to access NVIDIA GPU Performance Counters on the target device 0. For instructions on enabling permissions and to get more information see https://developer.nvidia.com/ERR_NVGPUCTRPERM
+  uniform[-10,10]: worst error 0.374 of the derived bound
+[  OK  ] softmax_uniform
+[ SKIP ] softmax_large_offset (excluded on the command line)
+[ SKIP ] softmax_wide_range (excluded on the command line)
+[ RUN  ] softmax_grid_inputs_tight_bound
+  grid[-16,16] (tight bound): worst error 0.305 of the bound
+[  OK  ] softmax_grid_inputs_tight_bound
+[ RUN  ] softmax_exp_accuracy
+  exp accuracy rows [0,-t]: worst error 0.207 of the bound
+[  OK  ] softmax_exp_accuracy
+[ RUN  ] softmax_constant_rows
+[  OK  ] softmax_constant_rows
+[ RUN  ] softmax_one_hot
+[  OK  ] softmax_one_hot
+[ RUN  ] softmax_special_values
+[  OK  ] softmax_special_values
+[ RUN  ] softmax_single_column_is_one
+[  OK  ] softmax_single_column_is_one
+[ RUN  ] softmax_deterministic
+[  OK  ] softmax_deterministic
+[ RUN  ] softmax_inplace_host
+[  OK  ] softmax_inplace_host
+[ RUN  ] softmax_invalid_and_unsupported
+[  OK  ] softmax_invalid_and_unsupported
+[ RUN  ] softmax_auto_dispatch
+[  OK  ] softmax_auto_dispatch
+0 of 11 tests failed, 2 skipped, 0 cases skipped by --max-n
+==PROF== Disconnected from process 22764
+[gpu_guard] 2.2 s, peak 42 C, log: <home>\AppData\Local\Temp\kl-ncu-gpu.csv
+

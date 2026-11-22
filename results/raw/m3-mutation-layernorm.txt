@@ -1,0 +1,36 @@
+# Layer-norm mutation checks (11 mutations of src/cuda/layernorm.cu)
+# CAUGHT = at least one C++ or Python test failed with the mutation applied.
+rsqrtf: CAUGHT - scale via rsqrtf (2 ulp) instead of 1.0f / sqrtf
+    1 of 21 C++ tests failed: ln_scale_path_rounding
+    pytest: 10 failed, 701 passed in 8.28s; failing tests: test_layernorm_scale_path_rounding
+unbiased_variance: CAUGHT - divide the sum of squares by n - 1 (all kernels)
+    13 of 21 C++ tests failed: ln_constant_rows, ln_eps_dominated, ln_eps_values, ln_extreme_in_domain, ln_large_offset, ln_max_rows, ln_naive_instability_study, ln_outlier_first_element, ln_outlier_positions, ln_scale_path_rounding, ln_special_values, ln_uniform_affine, ln_uniform_no_affine
+    pytest: 327 failed, 384 passed in 10.76s; failing tests: test_layernorm_constant_rows, test_layernorm_eps_values, test_layernorm_extreme_in_domain, test_layernorm_matches_float64_reference, test_layernorm_matches_torch_float64, test_layernorm_max_rows, test_layernorm_outlier_positions, test_layernorm_scale_path_rounding, test_layernorm_special_values_match_torch_semantics
+naive_variance_fused_block: CAUGHT - E[x^2] - E[x]^2 in FUSED_BLOCK
+    8 of 21 C++ tests failed: ln_constant_rows, ln_extreme_in_domain, ln_large_offset, ln_max_rows, ln_naive_instability_study, ln_smem_bitwise_equals_block, ln_uniform_affine, ln_uniform_no_affine
+    pytest: 76 failed, 635 passed in 7.88s; failing tests: test_layernorm_constant_rows, test_layernorm_extreme_in_domain, test_layernorm_matches_float64_reference, test_layernorm_max_rows, test_layernorm_smem_bitwise_equals_block
+dropped_last_element_fused_block_mean: CAUGHT - FUSED_BLOCK mean loop skips the last element
+    12 of 21 C++ tests failed: ln_eps_dominated, ln_eps_values, ln_extreme_in_domain, ln_large_offset, ln_max_rows, ln_outlier_first_element, ln_outlier_positions, ln_scale_path_rounding, ln_smem_bitwise_equals_block, ln_special_values, ln_uniform_affine, ln_uniform_no_affine
+    pytest: 48 failed, 663 passed in 7.79s; failing tests: test_layernorm_eps_values, test_layernorm_extreme_in_domain, test_layernorm_matches_float64_reference, test_layernorm_matches_torch_float64, test_layernorm_max_rows, test_layernorm_outlier_positions, test_layernorm_scale_path_rounding, test_layernorm_smem_bitwise_equals_block, test_layernorm_special_values_match_torch_semantics
+no_pivot_fused_block: CAUGHT - FUSED_BLOCK forms the mean without the pivot shift (sum of x, pivot 0)
+    2 of 21 C++ tests failed: ln_constant_rows, ln_smem_bitwise_equals_block
+    pytest: 34 failed, 677 passed in 8.28s; failing tests: test_layernorm_constant_rows, test_layernorm_smem_bitwise_equals_block
+no_mean_correction_fused_block: CAUGHT - FUSED_BLOCK outputs with the pivot-shifted mean m1, not the corrected mean
+    3 of 21 C++ tests failed: ln_outlier_first_element, ln_outlier_positions, ln_smem_bitwise_equals_block
+    pytest: 9 failed, 702 passed in 8.10s; failing tests: test_layernorm_outlier_positions, test_layernorm_smem_bitwise_equals_block
+no_mean_correction_warp: CAUGHT - FUSED_WARP outputs with the pivot-shifted mean m1, not the corrected mean
+    2 of 21 C++ tests failed: ln_outlier_first_element, ln_outlier_positions
+    pytest: 3 failed, 708 passed in 7.95s; failing tests: test_layernorm_outlier_positions
+warp_pivot_per_lane: CAUGHT - FUSED_WARP lanes use different pivots (row[lane] instead of row[0])
+    12 of 21 C++ tests failed: ln_eps_dominated, ln_eps_values, ln_extreme_in_domain, ln_large_offset, ln_max_rows, ln_outlier_first_element, ln_outlier_positions, ln_outside_domain_documented, ln_scale_path_rounding, ln_special_values, ln_uniform_affine, ln_uniform_no_affine
+    pytest: 100 failed, 611 passed in 7.50s; failing tests: test_layernorm_eps_values, test_layernorm_extreme_in_domain, test_layernorm_matches_float64_reference, test_layernorm_matches_torch_float64, test_layernorm_max_rows, test_layernorm_outlier_positions, test_layernorm_outside_domain_matches_torch, test_layernorm_scale_path_rounding, test_layernorm_special_values_match_torch_semantics
+warp_padding_nonzero_deviation: CAUGHT - FUSED_WARP padding lanes contribute (0 - m1)^2 and -m1
+    11 of 21 C++ tests failed: ln_constant_rows, ln_eps_dominated, ln_eps_values, ln_extreme_in_domain, ln_large_offset, ln_max_rows, ln_outlier_first_element, ln_outlier_positions, ln_special_values, ln_uniform_affine, ln_uniform_no_affine
+    pytest: 147 failed, 564 passed in 8.04s; failing tests: test_layernorm_constant_rows, test_layernorm_eps_values, test_layernorm_extreme_in_domain, test_layernorm_matches_float64_reference, test_layernorm_matches_torch_float64, test_layernorm_max_rows, test_layernorm_outlier_positions, test_layernorm_special_values_match_torch_semantics
+eps_outside_sqrt: CAUGHT - 1 / (sqrt(var) + eps) instead of 1 / sqrt(var + eps)
+    9 of 21 C++ tests failed: ln_eps_dominated, ln_eps_values, ln_extreme_in_domain, ln_large_offset, ln_max_rows, ln_naive_instability_study, ln_special_values, ln_uniform_affine, ln_uniform_no_affine
+    pytest: 181 failed, 530 passed in 8.91s; failing tests: test_layernorm_eps_values, test_layernorm_extreme_in_domain, test_layernorm_matches_float64_reference, test_layernorm_max_rows, test_layernorm_special_values_match_torch_semantics
+smem_output_wrong_index: CAUGHT - FUSED_SMEM output pass reads row_s[threadIdx.x] instead of row_s[j]
+    9 of 21 C++ tests failed: ln_eps_dominated, ln_eps_values, ln_large_offset, ln_outlier_first_element, ln_outlier_positions, ln_smem_bitwise_equals_block, ln_special_values, ln_uniform_affine, ln_uniform_no_affine
+    pytest: 54 failed, 657 passed in 8.74s; failing tests: test_layernorm_eps_values, test_layernorm_matches_float64_reference, test_layernorm_matches_torch_float64, test_layernorm_outlier_positions, test_layernorm_smem_bitwise_equals_block, test_layernorm_special_values_match_torch_semantics
+restored original: byte-identical=True, rebuild ok=True, 0 of 21 C++ tests failed, pytest: 711 passed in 8.09s

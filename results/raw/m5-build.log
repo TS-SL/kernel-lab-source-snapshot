@@ -1,0 +1,193 @@
+﻿-- The CXX compiler identification is MSVC 19.44.35230.0
+-- The CUDA compiler identification is NVIDIA 13.3.73 with host compiler MSVC 19.44.35230.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/bin/nvcc.exe - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Found CUDAToolkit: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/include;C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3/include/cccl (found suitable version "13.3.73", minimum required is "13.3")
+-- Configuring done (5.8s)
+-- Generating done (0.1s)
+-- Build files have been written to: <repo>/build/release
+[1/24] Building CXX object CMakeFiles\kernellens_objs.dir\src\common\error_state.cpp.obj
+[2/24] Building CXX object CMakeFiles\kernellens_objs.dir\src\common\device_buffer.cpp.obj
+[3/24] Building CXX object CMakeFiles\kernellens_objs.dir\src\kernellens_api.cpp.obj
+[4/24] Building CXX object CMakeFiles\test_smoke.dir\tests\cpp\test_smoke.cpp.obj
+[5/24] Building CXX object CMakeFiles\test_gemm.dir\tests\cpp\test_gemm.cpp.obj
+[6/24] Building CXX object CMakeFiles\test_layernorm.dir\tests\cpp\test_layernorm.cpp.obj
+[7/24] Building CXX object CMakeFiles\test_softmax.dir\tests\cpp\test_softmax.cpp.obj
+[8/24] Building CXX object CMakeFiles\bench_softmax.dir\benchmarks\bench_softmax.cpp.obj
+[9/24] Building CXX object CMakeFiles\profile_kernels.dir\benchmarks\profile_kernels.cpp.obj
+[10/24] Building CXX object CMakeFiles\bench_layernorm.dir\benchmarks\bench_layernorm.cpp.obj
+[11/24] Building CXX object CMakeFiles\bench_gemm.dir\benchmarks\bench_gemm.cpp.obj
+[12/24] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\saxpy.cu.obj
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN2kl4cuda40_GLOBAL__N__6880d85e_8_saxpy_cu_e62909d612saxpy_kernelExfPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda40_GLOBAL__N__6880d85e_8_saxpy_cu_e62909d612saxpy_kernelExfPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 24 registers, used 0 barriers, 384 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+saxpy.cu
+tmpxft_00008020_00000000-7_saxpy.cudafe1.cpp
+[13/24] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\gemm.cu.obj
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN2kl4cuda39_GLOBAL__N__888207d6_7_gemm_cu_7e1f4c7020gemm_regblock_kernelEiiiPKfS3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda39_GLOBAL__N__888207d6_7_gemm_cu_7e1f4c7020gemm_regblock_kernelEiiiPKfS3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 8256 bytes smem, 392 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda39_GLOBAL__N__888207d6_7_gemm_cu_7e1f4c7017gemm_tiled_kernelEiiiPKfS3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda39_GLOBAL__N__888207d6_7_gemm_cu_7e1f4c7017gemm_tiled_kernelEiiiPKfS3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 38 registers, used 1 barriers, 8192 bytes smem, 392 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda39_GLOBAL__N__888207d6_7_gemm_cu_7e1f4c7024gemm_naive_l2only_kernelEiiiPKfS3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda39_GLOBAL__N__888207d6_7_gemm_cu_7e1f4c7024gemm_naive_l2only_kernelEiiiPKfS3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 0 barriers, 392 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda39_GLOBAL__N__888207d6_7_gemm_cu_7e1f4c7017gemm_naive_kernelEiiiPKfS3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda39_GLOBAL__N__888207d6_7_gemm_cu_7e1f4c7017gemm_naive_kernelEiiiPKfS3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 0 barriers, 392 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+gemm.cu
+tmpxft_0000948c_00000000-7_gemm.cudafe1.cpp
+[14/24] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\softmax.cu.obj
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi32EEEvxiPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi32EEEvxiPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 72 registers, used 0 barriers, 384 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi16EEEvxiPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi16EEEvxiPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 44 registers, used 0 barriers, 384 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi8EEEvxiPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi8EEEvxiPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 30 registers, used 0 barriers, 384 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi4EEEvxiPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi4EEEvxiPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 22 registers, used 0 barriers, 384 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi2EEEvxiPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi2EEEvxiPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 18 registers, used 0 barriers, 384 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi1EEEvxiPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa19softmax_warp_kernelILi1EEEvxiPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 20 registers, used 0 barriers, 384 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa21softmax_online_kernelExPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa21softmax_online_kernelExPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 26 registers, used 1 barriers, 72 bytes smem, 376 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa16normalize_kernelExPKfS3_S3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa16normalize_kernelExPKfS3_S3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 26 registers, used 0 barriers, 392 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa14row_sum_kernelExPKfS3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa14row_sum_kernelExPKfS3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 25 registers, used 1 barriers, 36 bytes smem, 384 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa14row_max_kernelExPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda43_GLOBAL__N__73ffafd6_10_softmax_cu_d53167fa14row_max_kernelExPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 39 registers, used 1 barriers, 36 bytes smem, 376 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+softmax.cu
+tmpxft_00008de8_00000000-7_softmax.cudafe1.cpp
+[15/24] Building CUDA object CMakeFiles\kernellens_objs.dir\src\cuda\layernorm.cu.obj
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi32EEEvxifPKfS4_S4_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi32EEEvxifPKfS4_S4_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 80 registers, used 0 barriers, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi16EEEvxifPKfS4_S4_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi16EEEvxifPKfS4_S4_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 48 registers, used 0 barriers, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi8EEEvxifPKfS4_S4_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi8EEEvxifPKfS4_S4_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 35 registers, used 0 barriers, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi4EEEvxifPKfS4_S4_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi4EEEvxifPKfS4_S4_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 30 registers, used 0 barriers, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi2EEEvxifPKfS4_S4_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi2EEEvxifPKfS4_S4_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 25 registers, used 0 barriers, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi1EEEvxifPKfS4_S4_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_warp_kernelILi1EEEvxifPKfS4_S4_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 23 registers, used 0 barriers, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19621ln_fused_block_kernelILi0EEEvxfPKfS4_S4_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19621ln_fused_block_kernelILi0EEEvxfPKfS4_S4_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 48 bytes smem, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19621ln_fused_block_kernelILi1EEEvxfPKfS4_S4_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19621ln_fused_block_kernelILi1EEEvxfPKfS4_S4_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 48 bytes smem, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19615ln_naive_kernelExfPKfS3_S3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19615ln_naive_kernelExfPKfS3_S3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 48 bytes smem, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19620ln_fused_smem_kernelExfPKfS3_S3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19620ln_fused_smem_kernelExfPKfS3_S3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 48 bytes smem, 400 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19619ln_normalize_kernelExPKfS3_S3_S3_S3_Pf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19619ln_normalize_kernelExPKfS3_S3_S3_S3_Pf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 0 barriers, 408 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_rstd_kernelExfPKfPfS4_' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_rstd_kernelExfPKfPfS4_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 48 bytes smem, 392 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+ptxas info    : Compiling entry function '_ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_mean_kernelExPKfPf' for 'sm_86'
+ptxas info    : Function properties for _ZN2kl4cuda45_GLOBAL__N__cf5c200e_12_layernorm_cu_7456e19614ln_mean_kernelExPKfPf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 39 registers, used 1 barriers, 48 bytes smem, 376 bytes cmem[0]
+ptxas info    : Compile time = 0.000 ms
+layernorm.cu
+tmpxft_00003a78_00000000-7_layernorm.cudafe1.cpp
+[16/24] Linking CXX shared library kernellens.dll
+[17/24] Linking CXX executable test_smoke.exe
+[18/24] Linking CXX executable test_softmax.exe
+[19/24] Linking CXX executable test_layernorm.exe
+[20/24] Linking CXX executable test_gemm.exe
+[21/24] Linking CXX executable bench_softmax.exe
+[22/24] Linking CXX executable bench_layernorm.exe
+[23/24] Linking CXX executable profile_kernels.exe
+[24/24] Linking CXX executable bench_gemm.exe
+

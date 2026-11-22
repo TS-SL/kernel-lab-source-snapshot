@@ -1,0 +1,26 @@
+﻿date (UTC)                   [date redacted]
+os                           Microsoft Windows 11 Home 25H2 (build 26200), 64-bit
+cpu                          12th Gen Intel(R) Core(TM) i5-12400 (6 cores / 12 threads)
+host memory (GiB)            15.7
+gpu (nvidia-smi)             NVIDIA GeForce RTX 3060, 610.60, 12288 MiB, 8.6, 170.00 W, 94.06.2f.40.11
+gpu display active           Disabled
+gpu state now                47, 30 %, P8, 12.66 W, 262 MHz, 2100 MHz, 0 %
+gpu temperature limits       Target Temperature Specification: 83 C; Max Operating Temp: 93 C; Slowdown Temp: 95 C; Shutdown Temp: 98 C
+driver CUDA version          13.3
+gpu driver model             WDDM
+cuda toolkit (version.json)  13.3.1
+nvcc                         Cuda compilation tools, release 13.3, V13.3.73
+visual studio                Visual Studio Build Tools 2022 17.14.37906.3
+windows sdk                  10.0.26100.0
+msvc                         Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35230 for x64
+cmake                        cmake version 4.4.5
+ninja                        1.13.2
+python (venv)                3.12.10 numpy 2.5.5 pytest 9.2.0
+torch (venv)                 2.15.0+cu132 CUDA 13.2 available True
+gpu L2 cache (torch query)   2304 KiB
+compute-sanitizer            Version 2026.2.1.0 (build 38334959) (public-release)
+nsight compute               Nsight Compute 2026.2.1
+GPUDebugger EnableInterface  not set -> Compute Sanitizer device checks BLOCKED
+GPU perf counters            registry value absent -> driver default (admin only); non-elevated ncu verified BLOCKED, see results/raw/m2-ncu-probe.log
+Windows TDR delay            default (2 s)
+LongPathsEnabled             no (keep the repo at a short path)
